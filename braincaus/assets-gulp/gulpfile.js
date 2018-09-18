@@ -13,7 +13,7 @@ gulp.task('copy', function () {
 });
 
 gulp.task("resize", ["copy"],function(){
-    gulp.src('./build/img/*')
+    gulp.src('./build/img/*.*')
         .pipe(imageResize({
             width : 50,
             height : 50,
@@ -21,4 +21,4 @@ gulp.task("resize", ["copy"],function(){
             upscale : false
         }))
         .pipe(gulp.dest('./build/img/min/'));
-})
+});

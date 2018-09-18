@@ -11,7 +11,8 @@
   },
   "scripts": {
     "test": "test",
-    "serve": "./node_modules/.bin/serve"
+    "build": "gulp",
+    "serve": "serve"
   },
   "repository": {
     "type": "git",
