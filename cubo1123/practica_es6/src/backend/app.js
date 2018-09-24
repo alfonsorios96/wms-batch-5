@@ -1,13 +1,14 @@
-import express from "express"
-import cors from "cors"
-var app = express();
-import heroes from "./controllers/superheroes"
-app.use(cors())
+import express from "express";
+import cors from "cors";
+import heroes from "./controllers/superheroes";
 
-app.use('/heroes', heroes)
+const app = express();
 
-var server = app.listen(8080, function () {
-    console.log('Server is running...')
+app.use(cors());
+app.use('/heroes', heroes);
+
+const server = app.listen(8080, () => {
+    console.log('Server is running...');
 });
 
 module.exports = app;

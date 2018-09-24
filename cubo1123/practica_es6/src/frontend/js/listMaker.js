@@ -1,35 +1,29 @@
-function makeList() {
-    fetch("http://localhost:8080/heroes/",{
+const makeList = () => {
+    fetch("http://localhost:8080/heroes/", {
         mode: 'cors',
-        headers:{
-            'Access-Control-Allow-Origin':'*'
+        headers: {
+            'Access-Control-Allow-Origin': '*'
         }
     }).then(res => res.json())
-    .then(json => {
-        let heroes = json.response
-        var body = document.getElementsByTagName("BODY")[0];
-   
-        let list = document.createElement("ul");
-       
-        for (let i = 0; i < heroes.length; i++) {
-            var hero = document.createElement("li")
-            var heroImg = document.createElement("img")
-            heroImg.src = heroes[i].image
-            hero.appendChild(heroImg)
-            var heroName = document.createElement("span")
-            heroName.textContent = heroes[i].name
-            hero.appendChild(heroName)
+        .then(json => {
+            const heroes = json.response;
+            const list = document.createElement("ul");
+            for(const hero of heroes) {
+                const heroLi = document.createElement("li");
+                const heroImg = document.createElement("img");
+                heroImg.src = hero.image;
+                heroLi.appendChild(heroImg);
+                let heroName = document.createElement("span");
+                heroName.textContent = hero.name;
+                heroLi.appendChild(heroName);
+                list.appendChild(heroLi);
+            }
+            document.body.appendChild(list);
+        })
 
-            list.appendChild(hero)
-        }
+};
 
-        document.body.appendChild(list)
-    })
-
-  }
-
-  window.onload = function get_body() {
+window.onload = () => {
     makeList()
-  }
-  
-  
+};
+

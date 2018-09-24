@@ -65,3 +65,6 @@ typings/
 
 # Transforms and bundlers
 dist/
+
+# Práctica ES6
+cubo1123/practica_es6/public/**/
