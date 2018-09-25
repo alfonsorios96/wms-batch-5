@@ -3,7 +3,7 @@ const babel = require("gulp-babel");
 const gulpUtil = require("gulp-util");
 const sass = require('gulp-sass');
 
-gulp.task("default" ,["js","sass"], ()=> {
+gulp.task("default" ,["js","sass", "html"], ()=> {
     console.log("Is done")
 });
 
